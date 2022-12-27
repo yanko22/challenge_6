@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca7b8a4f-3eb0-4573-9e41-eb0cdd70c8f5">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="248" splitType="Stretch">
+			<staticText>
+				<reportElement x="291" y="62" width="449" height="108" forecolor="#AE00FF" uuid="36069b4c-04a5-45c0-9210-76894e03fa24"/>
+				<textElement textAlignment="Center">
+					<font fontName="Elephant" size="37"/>
+				</textElement>
+				<text><![CDATA[GIGACHAD STUDIO
+PREMIERE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="64" y="1" width="360" height="230" uuid="97604972-1520-46ae-a638-301d7481b450"/>
+				<imageExpression><![CDATA["D:/BACK END JAVA/Latihan Java/Challenge or Tugas/Challenge_5/src/main/resources/logo studio.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="246" y="180" width="333" height="30" forecolor="#AE00FF" uuid="b93fae3e-b547-4203-be03-0fcb3f8c8771"/>
+				<textElement textAlignment="Center">
+					<font fontName="Blackadder ITC" size="24"/>
+				</textElement>
+				<text><![CDATA[~with gigachad, nothing is impossible~]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement x="210" y="16" width="382" height="41" uuid="f435d4f4-bd51-4dc3-b523-c5d86fc25fca"/>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian" size="27"/>
+				</textElement>
+				<text><![CDATA[INVOICE TICKET RESERVATION]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="144" splitType="Stretch">
+			<textField>
+				<reportElement x="169" y="100" width="128" height="30" uuid="31f579e6-d0ce-4b00-beb0-dc4f3e4c06cd"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA["${user}"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="100" width="270" height="30" uuid="1467c170-ed3e-4635-bcc1-9d74108c81ed"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA["${seat}"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="56" width="347" height="30" uuid="f8f80e3d-3268-40e2-8ff6-09071721ebc6"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA["${schedule}"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="11" width="489" height="30" uuid="f1105c33-a208-4b8d-9e02-324d6e2d8cfb"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA["${filmName}"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="199" y="13" width="405" height="30" uuid="45316e2d-586f-4c35-997c-9d567e336d57"/>
+				<textElement textAlignment="Center">
+					<font size="21"/>
+				</textElement>
+				<text><![CDATA[This is your summary reservation.]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="291" y="8" width="220" height="30" uuid="ce8e15a5-e4e9-4eaa-8f26-0124d014227f"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[THANK YOU]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
