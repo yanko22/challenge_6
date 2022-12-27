@@ -27,26 +27,31 @@ public class InvoiceService {
         String path = "src/main/resources/invoice.jrxml";
         JasperReport sourceFileName = JasperCompileManager.compileReport(path);
 
-        List<Map<String, Object>> fillInvoice = new ArrayList<>();
-        Map<String, Object> fill = new HashMap<>();
+//        List<Map<String, Object>> fillInvoice = new ArrayList<>();
+//        Map<String, Object> fill = new HashMap<>();
 
-        List<Users> users = usersService.getUser();
-        List<Films> films = filmsService.getFilm();
-        List<Schedules> schedules = filmsService.getScheduleDate();
-        List<Seats> seats = filmsService.getSeat();
-        List<Seats> studio = filmsService.getStudio();
-        String seatForU = seats + "" + studio;
+//        List<Users> users = usersService.getUser();
+//        List<Films> films = filmsService.getFilm();
+//        List<Schedules> schedules = filmsService.getScheduleDate();
+//        List<Seats> seats = filmsService.getSeat();
+//        List<Seats> studio = filmsService.getStudio();
+//        String seatForU = seats + "" + studio;
+//
+//        fill.put("user", users);
+//        fill.put("filmName", films);
+//        fill.put("schedule", schedules);
+//        fill.put("seat", seatForU);
+//        fillInvoice.add(fill);
 
-        fill.put("user", users);
-        fill.put("filmName", films);
-        fill.put("schedule", schedules);
-        fill.put("seat", seatForU);
-        fillInvoice.add(fill);
+        //example generated jasper report pdf
+        Map<String, Object> parameters = new HashMap<String, Object>();
 
-        JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(fillInvoice);
-        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("user", "user : ngab_owi666");
+        parameters.put("filmName", "Title : Daily Life of Queen Puan");
+        parameters.put("schedule", "Time : 12 Desember 2022");
+        parameters.put("seat", "Seat : C 13");
 
-        JasperPrint jasperPrint = JasperFillManager.fillReport(sourceFileName, parameters, beanColDataSource);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(sourceFileName, parameters, new JREmptyDataSource());
 
         response.setContentType("application/pdf");
         response.addHeader("Content-Disposition", "inline; filename=invoice.pdf;");

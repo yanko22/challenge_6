@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.binar</groupId>
-	<artifactId>chapter4</artifactId>
+	<artifactId>chapter6</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>chapter5</name>
 	<description>Challenge Chapter 6 Synrgy Academy Batch 5</description>
@@ -94,6 +94,13 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
+			<version>6.20.0</version>
+		</dependency>
+
+		<!-- https://thegeekyasian.com/add-custom-fonts-to-jasper-report-in-java-project-jaspersoft/ -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
 			<version>6.20.0</version>
 		</dependency>
 

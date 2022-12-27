@@ -1,2 +1,3 @@
-# Invoice Preview
-![Invoice preview](https://user-images.githubusercontent.com/112455924/207838428-4be3f523-6053-4306-9e1a-5ee9b6d5be0e.png)
+# Examole Generated Invoice Using API
+![example generated invoice using API](https://user-images.githubusercontent.com/112455924/209722453-417844bc-fb25-4e1c-97c2-4e5f0827bce0.png)
+

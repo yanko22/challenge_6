@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="Algerian">
+        <normal><![CDATA[fonts/Algerian/Algerian.ttf]]></normal>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+        <exportFonts/>
+    </fontFamily>
+    <fontFamily name="Blackadder ITC">
+        <normal><![CDATA[fonts/Blackadder ITC/Blackadder ITC.ttf]]></normal>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+        <exportFonts/>
+    </fontFamily>
+    <fontFamily name="Elephant">
+        <normal><![CDATA[fonts/Elephant/Elephant.ttf]]></normal>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+        <exportFonts/>
+    </fontFamily>
+    <fontFamily name="SansSerif">
+        <bold><![CDATA[fonts/SansSerif/SansSerif.ttf]]></bold>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+        <exportFonts/>
+    </fontFamily>
+</fontFamilies>
