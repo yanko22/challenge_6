@@ -16,12 +16,6 @@ public class UsersRepositoryTest {
     UsersServiceImpl usersServiceImpl;
 
     @Test
-    void getUsersTest() {
-        Users test = usersRepository.getUsers();
-        Assertions.assertNotNull(test);
-    }
-
-    @Test
     void addUsersTest1() {
         Users users = new Users();
         users.setId(101);

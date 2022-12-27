@@ -19,7 +19,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/users")
 public class UsersController {
@@ -56,9 +55,10 @@ public class UsersController {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsersResponse.class)))
     })
     @PutMapping("/update_user")
+    @SecurityRequirement(name = "bearerAuth")
     @PreAuthorize(value = "hasAuthority('CUSTOMER')")
     public ResponseEntity updateUsers(@RequestBody UsersRequest usersRequest) {
-            Users users = usersService.updateUser(usersRequest);
+            usersService.updateUser(usersRequest);
             Boolean usernameExist = usersRepository.existsByUsername(usersRequest.getUsername());
             if (Boolean.TRUE.equals(usernameExist)) {
                 logger.info("Error: Username is already taken ! ");
@@ -67,7 +67,7 @@ public class UsersController {
             if (Boolean.TRUE.equals(emailExist)) {
                 logger.info("Error: Email is already taken ! ");
             }
-            if (users != null) {
+            if (usernameExist == false) {
             return ResponseEntity.status(HttpStatus.OK).body("update success (CODE 200)");
         } else
             return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("update failed (CODE 502)");
@@ -79,8 +79,9 @@ public class UsersController {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsersResponse.class)))
     })
     @DeleteMapping("/delete_user")
+    @SecurityRequirement(name = "bearerAuth")
     @PreAuthorize(value = "hasAuthority('CUSTOMER')")
-    public ResponseEntity deleteUsers(@RequestParam("username") Integer id) {
+    public ResponseEntity deleteUsers(@RequestParam("id") Integer id) {
         try {
             usersService.deleteUser(id);
             return ResponseEntity.status(HttpStatus.OK).body("update success (CODE 200)");

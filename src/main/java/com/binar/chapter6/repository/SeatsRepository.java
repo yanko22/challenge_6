@@ -14,11 +14,11 @@ import java.util.List;
 @Repository
 public interface SeatsRepository extends JpaRepository<Seats, SeatsId> {
 
-    @Query(value = "select seat_number, studio_name from seats", nativeQuery = true)
-    Seats getSeatStudio ();
+    @Query(value = "select seat_number from seats", nativeQuery = true)
+    List<Seats> getSeat ();
 
-    @Query(value = "select * from seats", nativeQuery = true)
-    List<Seats> getStudioSeatStatus();
+    @Query(value = "select studio_name from seats", nativeQuery = true)
+    List<Seats> getStudio();
 
     @Modifying
     @Query(value = "update seats set status where seat_number=:seat_number, studio_name=:studio_name, statusUpdated=:statusUpdated", nativeQuery = true)

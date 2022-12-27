@@ -13,10 +13,7 @@ import java.util.List;
 @Repository
 public interface FilmsRepository extends JpaRepository<Films, Integer> {
     @Query(value = "select * from films", nativeQuery = true)
-    List<Films> getAllFilms();
-
-    @Query(value = "select film_name from films where is_playing = true", nativeQuery = true)
-    Films getFilmsByName();
+    List<Films> getFilmsByName();
 
     @Query(value = "select film_code from films", nativeQuery = true)
     Films getFilmsById(Integer filmCode);

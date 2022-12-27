@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -27,7 +28,7 @@ public class UsersServiceImpl implements UsersService {
     PasswordEncoder passwordEncoder;
 
     @Override
-    public Users getUser() {
+    public List<Users> getUser() {
         return usersRepository.getUsers();
     }
 
@@ -37,7 +38,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Users updateUser(UsersRequest usersRequest) {
+    public void updateUser(UsersRequest usersRequest) {
         Users update = usersRepository.getUsersById(usersRequest.getId());
         if (update == null) {
             logger.info("User not registered yet, please try again");
@@ -46,8 +47,6 @@ public class UsersServiceImpl implements UsersService {
             update.setEmail(usersRequest.getEmail());
             update.setPassword(passwordEncoder.encode(usersRequest.getPassword()));
             usersRepository.updateUser(update.getUsername(), update.getEmail(), update.getPassword());
-
-            return null;
     }
 
     @Override

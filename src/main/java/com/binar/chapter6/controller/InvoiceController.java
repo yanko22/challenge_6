@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
-@SecurityRequirement(name = "bearerAuth")
+
 @RestController
 @RequestMapping("/invoice")
 public class InvoiceController {
@@ -30,6 +30,7 @@ public class InvoiceController {
                     content = @Content(mediaType = "application/pdf"))
     })
     @GetMapping("/get_invoice")
+    @SecurityRequirement(name = "bearerAuth")
     @PreAuthorize(value = "hasAuthority('CUSTOMER')")
     public ResponseEntity getInvoice(HttpServletResponse response) {
         try {

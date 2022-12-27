@@ -13,11 +13,8 @@ import java.util.Optional;
 
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Integer> {
-    @Query(value = "select * from users", nativeQuery = true)
-    List<Users> getAllUsers();
-
     @Query(value = "select username from users", nativeQuery = true)
-    Users getUsers();
+    List<Users> getUsers();
 
     @Query(value = "select id from users", nativeQuery = true)
     Users getUsersById(Integer id);

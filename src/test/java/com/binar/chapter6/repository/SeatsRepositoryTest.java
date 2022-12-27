@@ -14,10 +14,4 @@ public class SeatsRepositoryTest {
     @Autowired
     SeatsRepository seatsRepository;
 
-    @Test
-    void getStudioSeatTest() {
-        List<Seats> test = seatsRepository.getStudioSeatStatus();
-        Assertions.assertNotNull(test);
-    }
-
 }

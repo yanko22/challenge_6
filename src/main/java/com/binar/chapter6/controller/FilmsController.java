@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/films")
 public class FilmsController {
@@ -31,6 +30,7 @@ public class FilmsController {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = FilmsResponse.class)))
     })
     @PostMapping("/add_film")
+    @SecurityRequirement(name = "bearerAuth")
     @PreAuthorize(value = "hasAuthority('ADMIN')")
     public ResponseEntity addFilms(@RequestBody FilmsRequest addRequest) {
         try {
@@ -41,12 +41,12 @@ public class FilmsController {
             filmsService.addFilm(films);
 
             Schedules schedules = new Schedules();
-            schedules.setScheduleId(schedules.getScheduleId());
-            schedules.setFilmCode(schedules.getFilmCode());
-            schedules.setPlayingDate(schedules.getPlayingDate());
-            schedules.setStartingTime(schedules.getStartingTime());
-            schedules.setEndingTime(schedules.getEndingTime());
-            schedules.setTicketPrice(schedules.getTicketPrice());
+            schedules.setScheduleId(addRequest.getScheduleId());
+            schedules.setFilmCode(addRequest.getFilmCode());
+            schedules.setPlayingDate(addRequest.getPlayingDate());
+            schedules.setStartingTime(addRequest.getStartingTime());
+            schedules.setEndingTime(addRequest.getEndingTime());
+            schedules.setTicketPrice(addRequest.getTicketPrice());
             filmsService.addSchedule(schedules);
 
             return ResponseEntity.status(HttpStatus.OK).body("add success (CODE 200)");
@@ -61,8 +61,9 @@ public class FilmsController {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = FilmsResponse.class)))
     })
     @PutMapping("/update_film")
+    @SecurityRequirement(name = "bearerAuth")
     @PreAuthorize(value = "hasAuthority('ADMIN')")
-    public ResponseEntity updateFilms(@RequestParam("film_name") FilmsRequest filmsRequest) {
+    public ResponseEntity updateFilms(@RequestBody FilmsRequest filmsRequest) {
         try {
             filmsService.updateFilm(filmsRequest);
             return ResponseEntity.status(HttpStatus.OK).body("update success (CODE 200)");
@@ -77,6 +78,7 @@ public class FilmsController {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = FilmsResponse.class)))
     })
     @DeleteMapping("/delete_film")
+    @SecurityRequirement(name = "bearerAuth")
     @PreAuthorize(value = "hasAuthority('ADMIN')")
     public ResponseEntity deleteFilms(@RequestParam("film_code") Integer filmCode) {
         try {

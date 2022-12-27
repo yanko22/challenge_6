@@ -32,7 +32,7 @@ public class FilmsServiceImpl implements FilmsService {
     }
 
     @Override
-    public Films updateFilm(FilmsRequest filmsRequest) {
+    public void updateFilm(FilmsRequest filmsRequest) {
         Films filmExist = filmsRepository.getFilmsById(filmsRequest.getFilmCode());
         Films update = new Films();
         if (filmExist == null) {
@@ -40,8 +40,6 @@ public class FilmsServiceImpl implements FilmsService {
         } else
             update.setFilmName(filmsRequest.getFilmName());
             filmsRepository.updateFilmByName(update.getFilmName());
-
-            return null;
     }
 
     @Override
@@ -50,7 +48,7 @@ public class FilmsServiceImpl implements FilmsService {
     }
 
     @Override
-    public Films getFilm() {
+    public List<Films> getFilm() {
         return filmsRepository.getFilmsByName();
     }
 
@@ -61,7 +59,7 @@ public class FilmsServiceImpl implements FilmsService {
     }
 
     @Override
-    public Schedules getScheduleDate() {
+    public List<Schedules> getScheduleDate() {
         return schedulesRepository.getSchedulesDate();
     }
 
@@ -71,13 +69,13 @@ public class FilmsServiceImpl implements FilmsService {
     }
 
     @Override
-    public Seats getSeatStudio() {
-        return seatsRepository.getSeatStudio();
+    public List<Seats> getSeat() {
+        return seatsRepository.getSeat();
     }
 
     @Override
-    public List<Seats> getStudioSeatStatus() {
-        return seatsRepository.getStudioSeatStatus();
+    public List<Seats> getStudio() {
+        return seatsRepository.getStudio();
     }
 
     @Override

@@ -27,18 +27,19 @@ public class InvoiceService {
         String path = "src/main/resources/invoice.jrxml";
         JasperReport sourceFileName = JasperCompileManager.compileReport(path);
 
-        List<Map<String, String>> fillInvoice = new ArrayList<>();
-        Map<String, String> fill = new HashMap<>();
+        List<Map<String, Object>> fillInvoice = new ArrayList<>();
+        Map<String, Object> fill = new HashMap<>();
 
-        Users users = usersService.getUser();
-        Films films = filmsService.getFilm();
-        Schedules schedules = filmsService.getScheduleDate();
-        Seats seats = filmsService.getSeatStudio();
-        String seatForU = seats.getSeatNumber() + ", " + seats.getStudioName();
+        List<Users> users = usersService.getUser();
+        List<Films> films = filmsService.getFilm();
+        List<Schedules> schedules = filmsService.getScheduleDate();
+        List<Seats> seats = filmsService.getSeat();
+        List<Seats> studio = filmsService.getStudio();
+        String seatForU = seats + "" + studio;
 
-        fill.put("user", users.getUsername());
-        fill.put("film", films.getFilmName());
-        fill.put("schedule", schedules.getPlayingDate());
+        fill.put("user", users);
+        fill.put("filmName", films);
+        fill.put("schedule", schedules);
         fill.put("seat", seatForU);
         fillInvoice.add(fill);
 

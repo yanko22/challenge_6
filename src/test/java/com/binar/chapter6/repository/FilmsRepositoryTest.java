@@ -13,11 +13,6 @@ public class FilmsRepositoryTest {
     @Autowired
     FilmsRepository filmsRepository;
 
-    @Test
-    void getAllFilms() {
-        List<Films> test = filmsRepository.getAllFilms();
-        Assertions.assertNotNull(test);
-    }
 
     @Test
     void addFilms() {

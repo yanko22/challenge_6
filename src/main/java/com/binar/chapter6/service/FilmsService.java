@@ -13,21 +13,21 @@ public interface FilmsService {
 
     Films addFilm (Films films);
 
-    Films updateFilm (FilmsRequest filmsRequest);
+    void updateFilm (FilmsRequest filmsRequest);
 
     void deleteFilm (Integer filmCode);
 
-    Films getFilm();
+    List<Films> getFilm();
 
     Schedules addSchedule (Schedules schedules);
 
-    Schedules getScheduleDate();
+    List<Schedules> getScheduleDate();
 
     Schedules getSchedulesFilms();
 
-    Seats getSeatStudio();
+    List<Seats> getSeat();
 
-    public List<Seats> getStudioSeatStatus();
+    List<Seats> getStudio();
 
     void updateStatus (String seatNumber, String studioName, String statusUpdated);
 }
