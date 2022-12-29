@@ -11,7 +11,7 @@
 	<groupId>com.binar</groupId>
 	<artifactId>chapter6</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>chapter5</name>
+	<name>chapter6</name>
 	<description>Challenge Chapter 6 Synrgy Academy Batch 5</description>
 	<properties>
 		<java.version>1.8</java.version>
